@@ -1,220 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>World King Bhai</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:Poppins,sans-serif;
 }
 
 body{
-background:radial-gradient(circle at top,#1a1a1a,#0b0b0b 60%);
-font-family:'Poppins',sans-serif;
-color:#fff;
+height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-min-height:100vh;
+background:#000;
+overflow:hidden;
+color:white;
 }
 
-/* Main Container */
-.container{
-max-width:420px;
+/* Animated Glowing Background */
+body::before{
+content:"";
+position:absolute;
+width:700px;
+height:700px;
+background:radial-gradient(circle,gold,transparent 60%);
+filter:blur(120px);
+animation:moveBg 6s linear infinite alternate;
+}
+
+@keyframes moveBg{
+0%{transform:translate(-200px,-200px);}
+100%{transform:translate(200px,200px);}
+}
+
+/* Main Card */
+.card{
+position:relative;
 width:95%;
+max-width:420px;
 padding:40px 25px;
-border-radius:20px;
-background:linear-gradient(145deg,#111,#0a0a0a);
-border:1px solid rgba(212,175,55,0.3);
-box-shadow:0 0 50px rgba(212,175,55,0.15);
+border-radius:25px;
+background:rgba(20,20,20,0.85);
+backdrop-filter:blur(20px);
+box-shadow:0 0 50px rgba(255,215,0,0.5);
 text-align:center;
+animation:fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(40px);}
+to{opacity:1; transform:translateY(0);}
 }
 
 /* Logo */
-.logo-wrapper{
-display:flex;
-justify-content:center;
-margin-bottom:20px;
-}
-
 .logo{
-width:115px;
-height:115px;
+width:120px;
+height:120px;
 border-radius:50%;
-border:4px solid #D4AF37;
+border:5px solid gold;
 padding:6px;
-box-shadow:0 0 25px rgba(212,175,55,0.7);
-animation:logoGlow 2s infinite alternate;
+box-shadow:0 0 40px gold;
+animation:float 3s ease-in-out infinite;
 }
 
-@keyframes logoGlow{
-from{box-shadow:0 0 15px rgba(212,175,55,0.5);}
-to{box-shadow:0 0 40px rgba(212,175,55,0.9);}
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
 }
 
 /* Title */
 h1{
-font-family:'Playfair Display',serif;
-font-size:30px;
-color:#D4AF37;
-margin-bottom:10px;
-letter-spacing:1px;
+font-size:32px;
+margin-top:20px;
+font-weight:800;
+text-shadow:0 0 20px gold;
 }
 
 /* Premium Verified */
 .verified{
-color:#D4AF37;
-font-size:14px;
-margin-bottom:20px;
-letter-spacing:1px;
-text-shadow:0 0 10px rgba(212,175,55,0.7);
+font-size:22px;
+color:#00ff88;
+text-shadow:0 0 20px #00ff88,0 0 40px #00ff88;
+margin:15px 0;
+font-weight:600;
 }
 
 /* Description */
-.description{
-text-align:left;
-margin-bottom:25px;
-}
-
-.point{
-display:flex;
-align-items:center;
-gap:10px;
-margin-bottom:12px;
-font-size:14px;
-}
-
-.gold-tick{
-color:#D4AF37;
-font-weight:700;
+.desc{
 font-size:16px;
-text-shadow:0 0 8px rgba(212,175,55,0.9);
+line-height:1.8;
+margin-bottom:25px;
+opacity:0.95;
 }
 
 /* Timer */
 .timer-title{
-font-size:13px;
-color:#D4AF37;
-margin-bottom:8px;
-letter-spacing:1px;
+color:gold;
+font-size:18px;
+margin-top:10px;
+text-shadow:0 0 10px gold;
 }
 
 #countdown{
-font-size:28px;
-font-weight:600;
-margin-bottom:25px;
+font-size:55px;
+color:#ff2e2e;
+font-weight:800;
+margin:10px 0 30px;
+text-shadow:0 0 20px red,0 0 40px red;
 animation:pulse 1s infinite;
 }
 
 @keyframes pulse{
 0%{transform:scale(1);}
-50%{transform:scale(1.1);}
+50%{transform:scale(1.15);}
 100%{transform:scale(1);}
 }
 
 /* Button */
-.join-btn{
-display:flex;
+.btn{
+display:inline-flex;
 align-items:center;
 justify-content:center;
-gap:10px;
-width:100%;
-padding:16px;
-background:#D4AF37;
-color:#000;
-font-weight:600;
-font-size:16px;
-border:none;
+gap:12px;
+background:linear-gradient(45deg,#FFD700,#ffae00);
+color:black;
+font-weight:800;
+font-size:20px;
+padding:18px 35px;
 border-radius:50px;
-cursor:pointer;
 text-decoration:none;
-transition:all 0.3s ease;
+box-shadow:0 0 40px gold,0 0 80px gold;
+transition:0.3s;
 }
 
-.join-btn:hover{
-background:#f1c40f;
-box-shadow:0 0 25px rgba(212,175,55,0.8);
-transform:translateY(-3px);
+.btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 60px gold,0 0 120px gold;
 }
 
-.join-btn svg{
-width:20px;
-height:20px;
-fill:#000;
-}
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="card">
 
-<div class="logo-wrapper">
 <img src="logo.png" class="logo">
-</div>
 
 <h1>World King Bhai</h1>
 
-<div class="verified">✔ Premium Cricket Intelligence</div>
+<div class="verified">✔ Premium Verified</div>
 
-<div class="description">
-
-<div class="point">
-<span class="gold-tick">✔</span>
-<span>India’s Most Trusted Cricket Intelligence Group</span>
-</div>
-
-<div class="point">
-<span class="gold-tick">✔</span>
-<span>Data Based Analysis • Sharp Match Reading</span>
-</div>
-
-<div class="point">
-<span class="gold-tick">✔</span>
-<span>Accurate Cricket & Tennis Predictions</span>
-</div>
-
-<div class="point">
-<span class="gold-tick">✔</span>
-<span>High Confidence Calls With Consistent Results</span>
-</div>
-
-<div class="point">
-<span class="gold-tick">✔</span>
-<span>Limited VIP Access – Join Now</span>
-</div>
-
+<div class="desc">
+Accurate Cricket & Tennis Predictions<br>
+99% Accuracy Ke Sath<br>
+High Confidence Calls With Consistent Result
 </div>
 
 <div class="timer-title">Vip Joining Ends In</div>
-<div id="countdown">60s</div>
+<div id="countdown">60</div>
 
-<a href="https://t.me/+27Ui4IDmUKQ5OTdl" class="join-btn">
-<svg viewBox="0 0 24 24">
-<path d="M9.04 15.47l-.39 5.48c.56 0 .8-.24 1.09-.53l2.63-2.5 5.45 3.99c1 .55 1.72.26 1.97-.92l3.57-16.73c.33-1.52-.55-2.12-1.52-1.76L1.55 9.18c-1.48.57-1.46 1.39-.25 1.76l5.87 1.83L19.67 5.8c.59-.36 1.12-.16.68.2"/>
-</svg>
-Join World King Vip
+<a href="https://t.me/+27Ui4IDmUKQ5OTdl" class="btn">
+✈ Join World King Vip
 </a>
 
 </div>
 
 <script>
-let timeLeft = 60;
-const countdown = document.getElementById("countdown");
-
-const timer = setInterval(()=>{
-timeLeft--;
-countdown.innerHTML = timeLeft + "s";
-
-if(timeLeft <= 0){
-clearInterval(timer);
-countdown.innerHTML = "Closed";
+let time = 60;
+let x = setInterval(function(){
+time--;
+document.getElementById("countdown").innerHTML=time;
+if(time<=0){
+clearInterval(x);
+document.getElementById("countdown").innerHTML="Closed";
 }
 },1000);
 </script>
