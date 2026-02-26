@@ -24,7 +24,7 @@ min-height:100vh;
 overflow:hidden;
 }
 
-/* Animated Light Background (Lightweight) */
+/* Animated Background Glow */
 .bg-glow{
 position:absolute;
 width:500px;
@@ -40,7 +40,6 @@ animation:move 8s infinite alternate ease-in-out;
 100%{transform:translate(150px,150px);}
 }
 
-/* Card */
 .card{
 position:relative;
 width:95%;
@@ -58,7 +57,6 @@ from{opacity:0; transform:translateY(30px);}
 to{opacity:1; transform:translateY(0);}
 }
 
-/* Logo */
 .logo{
 width:120px;
 height:120px;
@@ -69,7 +67,6 @@ box-shadow:0 0 35px gold;
 margin-bottom:20px;
 }
 
-/* Title */
 h1{
 font-size:32px;
 font-weight:800;
@@ -77,24 +74,36 @@ text-shadow:0 0 20px gold;
 margin-bottom:10px;
 }
 
-/* Verified */
-.verified{
+/* New Title */
+.king-title{
 font-size:20px;
-color:#00ff88;
-font-weight:600;
-text-shadow:0 0 15px #00ff88;
+font-weight:700;
+color:#00ffcc;
+text-shadow:0 0 15px #00ffcc;
 margin-bottom:20px;
+letter-spacing:1px;
 }
 
-/* Description */
+/* Description with Premium Tick */
 .desc{
-font-size:16px;
-line-height:1.8;
+text-align:left;
 margin-bottom:25px;
-opacity:0.95;
 }
 
-/* Timer */
+.desc p{
+font-size:16px;
+margin:10px 0;
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.tick{
+color:#00ff88;
+font-size:18px;
+text-shadow:0 0 10px #00ff88;
+}
+
 .timer-title{
 color:gold;
 font-size:18px;
@@ -116,7 +125,6 @@ animation:pulse 1s infinite;
 100%{transform:scale(1);}
 }
 
-/* Button */
 .btn{
 display:inline-block;
 background:linear-gradient(45deg,#FFD700,#ffae00);
@@ -147,12 +155,12 @@ box-shadow:0 0 70px gold;
 
 <h1>World King Bhai</h1>
 
-<div class="verified">✔ Premium Verified</div>
+<div class="king-title">🏆 Cricket Jagat Ka Baadshah 👑</div>
 
 <div class="desc">
-Accurate Cricket & Tennis Predictions<br>
-TIPPING KING<br>
-High Confidence With Consistent Result
+<p><span class="tick">✔</span> Accurate Cricket & Tennis Predictions</p>
+<p><span class="tick">✔</span> High Confidence Premium Analysis</p>
+<p><span class="tick">✔</span> Consistent Winning Performance</p>
 </div>
 
 <div class="timer-title">Vip Joining Ends In</div>
