@@ -5,104 +5,110 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>World King Bhai</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#000000,#0f0f0f,#1a1a1a);
-height:100vh;
+background:radial-gradient(circle at top,#1a1a1a,#0b0b0b 60%);
+font-family:'Poppins',sans-serif;
+color:#fff;
 display:flex;
 justify-content:center;
 align-items:center;
-color:white;
-overflow:hidden;
+min-height:100vh;
 }
 
-/* Animated Background Glow */
-body::before{
-content:"";
-position:absolute;
-width:600px;
-height:600px;
-background:radial-gradient(circle,#FFD70033,transparent 70%);
-animation:moveGlow 6s linear infinite;
-}
-
-@keyframes moveGlow{
-0%{transform:translate(-200px,-200px);}
-50%{transform:translate(200px,200px);}
-100%{transform:translate(-200px,-200px);}
-}
-
+/* Main Container */
 .container{
+max-width:420px;
+width:95%;
+padding:40px 25px;
+border-radius:20px;
+background:linear-gradient(145deg,#111,#0a0a0a);
+border:1px solid rgba(212,175,55,0.3);
+box-shadow:0 0 50px rgba(212,175,55,0.15);
 text-align:center;
-padding:30px;
-z-index:2;
 }
 
 /* Logo */
+.logo-wrapper{
+display:flex;
+justify-content:center;
+margin-bottom:20px;
+}
+
 .logo{
-width:120px;
-height:120px;
+width:115px;
+height:115px;
 border-radius:50%;
-border:5px solid gold;
-padding:5px;
-box-shadow:0 0 25px gold;
+border:4px solid #D4AF37;
+padding:6px;
+box-shadow:0 0 25px rgba(212,175,55,0.7);
 animation:logoGlow 2s infinite alternate;
 }
 
 @keyframes logoGlow{
-from{box-shadow:0 0 15px gold;}
-to{box-shadow:0 0 40px gold;}
+from{box-shadow:0 0 15px rgba(212,175,55,0.5);}
+to{box-shadow:0 0 40px rgba(212,175,55,0.9);}
 }
 
+/* Title */
 h1{
-margin-top:20px;
-font-size:32px;
-font-weight:800;
+font-family:'Playfair Display',serif;
+font-size:30px;
+color:#D4AF37;
+margin-bottom:10px;
 letter-spacing:1px;
+}
+
+/* Premium Verified */
+.verified{
+color:#D4AF37;
+font-size:14px;
+margin-bottom:20px;
+letter-spacing:1px;
+text-shadow:0 0 10px rgba(212,175,55,0.7);
 }
 
 /* Description */
 .description{
-margin-top:20px;
-font-size:15px;
-opacity:0.9;
-line-height:1.6;
+text-align:left;
+margin-bottom:25px;
 }
 
-/* Glowing Tick */
-.tick{
-font-size:30px;
-color:#00ff88;
-margin-top:20px;
-animation:tickGlow 1s infinite alternate;
+.point{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:12px;
+font-size:14px;
 }
 
-@keyframes tickGlow{
-from{ text-shadow:0 0 5px #00ff88; }
-to{ text-shadow:0 0 20px #00ff88; }
+.gold-tick{
+color:#D4AF37;
+font-weight:700;
+font-size:16px;
+text-shadow:0 0 8px rgba(212,175,55,0.9);
 }
 
 /* Timer */
 .timer-title{
-margin-top:25px;
-font-weight:600;
-color:gold;
+font-size:13px;
+color:#D4AF37;
+margin-bottom:8px;
+letter-spacing:1px;
 }
 
 #countdown{
 font-size:28px;
-margin-top:10px;
-font-weight:800;
-color:#ff3c3c;
+font-weight:600;
+margin-bottom:25px;
 animation:pulse 1s infinite;
 }
 
@@ -114,55 +120,80 @@ animation:pulse 1s infinite;
 
 /* Button */
 .join-btn{
-margin-top:30px;
-display:inline-flex;
+display:flex;
 align-items:center;
+justify-content:center;
 gap:10px;
-padding:15px 30px;
-font-size:18px;
-font-weight:700;
-background:linear-gradient(45deg,#FFD700,#ffae00);
-color:black;
+width:100%;
+padding:16px;
+background:#D4AF37;
+color:#000;
+font-weight:600;
+font-size:16px;
 border:none;
 border-radius:50px;
 cursor:pointer;
 text-decoration:none;
-box-shadow:0 0 20px #FFD700;
-transition:0.3s;
+transition:all 0.3s ease;
 }
 
 .join-btn:hover{
-transform:scale(1.08);
-box-shadow:0 0 40px #FFD700;
+background:#f1c40f;
+box-shadow:0 0 25px rgba(212,175,55,0.8);
+transform:translateY(-3px);
 }
 
-/* Telegram Icon */
 .join-btn svg{
-width:22px;
-height:22px;
-fill:black;
+width:20px;
+height:20px;
+fill:#000;
 }
-
 </style>
 </head>
+
 <body>
 
 <div class="container">
 
+<div class="logo-wrapper">
 <img src="logo.png" class="logo">
+</div>
 
 <h1>World King Bhai</h1>
 
-<div class="tick">✔ Premium Verified</div>
+<div class="verified">✔ Premium Cricket Intelligence</div>
 
 <div class="description">
-Accurate Cricket & Tennis Predictions<br>
-99% Accuracy Ke Sath<br>
-High Confidence With Consistent Result
+
+<div class="point">
+<span class="gold-tick">✔</span>
+<span>India’s Most Trusted Cricket Intelligence Group</span>
+</div>
+
+<div class="point">
+<span class="gold-tick">✔</span>
+<span>Data Based Analysis • Sharp Match Reading</span>
+</div>
+
+<div class="point">
+<span class="gold-tick">✔</span>
+<span>Accurate Cricket & Tennis Predictions</span>
+</div>
+
+<div class="point">
+<span class="gold-tick">✔</span>
+<span>High Confidence Calls With Consistent Results</span>
+</div>
+
+<div class="point">
+<span class="gold-tick">✔</span>
+<span>Limited VIP Access – Join Now</span>
+</div>
+
 </div>
 
 <div class="timer-title">Vip Joining Ends In</div>
-<div id="countdown">60</div>
+<div id="countdown">60s</div>
 
 <a href="https://t.me/+27Ui4IDmUKQ5OTdl" class="join-btn">
 <svg viewBox="0 0 24 24">
@@ -179,7 +210,7 @@ const countdown = document.getElementById("countdown");
 
 const timer = setInterval(()=>{
 timeLeft--;
-countdown.innerHTML = timeLeft;
+countdown.innerHTML = timeLeft + "s";
 
 if(timeLeft <= 0){
 clearInterval(timer);
