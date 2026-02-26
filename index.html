@@ -15,47 +15,46 @@ font-family:Poppins,sans-serif;
 }
 
 body{
-height:100vh;
+background:#000;
+color:#fff;
 display:flex;
 justify-content:center;
 align-items:center;
-background:#000;
+min-height:100vh;
 overflow:hidden;
-color:white;
 }
 
-/* Animated Glowing Background */
-body::before{
-content:"";
+/* Animated Light Background (Lightweight) */
+.bg-glow{
 position:absolute;
-width:700px;
-height:700px;
-background:radial-gradient(circle,gold,transparent 60%);
+width:500px;
+height:500px;
+background:radial-gradient(circle,#FFD700,transparent 70%);
 filter:blur(120px);
-animation:moveBg 6s linear infinite alternate;
+opacity:0.4;
+animation:move 8s infinite alternate ease-in-out;
 }
 
-@keyframes moveBg{
-0%{transform:translate(-200px,-200px);}
-100%{transform:translate(200px,200px);}
+@keyframes move{
+0%{transform:translate(-150px,-150px);}
+100%{transform:translate(150px,150px);}
 }
 
-/* Main Card */
+/* Card */
 .card{
 position:relative;
 width:95%;
 max-width:420px;
 padding:40px 25px;
 border-radius:25px;
-background:rgba(20,20,20,0.85);
-backdrop-filter:blur(20px);
-box-shadow:0 0 50px rgba(255,215,0,0.5);
+background:#111;
+box-shadow:0 0 40px rgba(255,215,0,0.4);
 text-align:center;
-animation:fadeIn 1.2s ease;
+animation:fade 1s ease;
 }
 
-@keyframes fadeIn{
-from{opacity:0; transform:translateY(40px);}
+@keyframes fade{
+from{opacity:0; transform:translateY(30px);}
 to{opacity:1; transform:translateY(0);}
 }
 
@@ -64,32 +63,27 @@ to{opacity:1; transform:translateY(0);}
 width:120px;
 height:120px;
 border-radius:50%;
-border:5px solid gold;
+border:4px solid gold;
 padding:6px;
-box-shadow:0 0 40px gold;
-animation:float 3s ease-in-out infinite;
-}
-
-@keyframes float{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(-10px);}
+box-shadow:0 0 35px gold;
+margin-bottom:20px;
 }
 
 /* Title */
 h1{
 font-size:32px;
-margin-top:20px;
 font-weight:800;
 text-shadow:0 0 20px gold;
+margin-bottom:10px;
 }
 
-/* Premium Verified */
+/* Verified */
 .verified{
-font-size:22px;
+font-size:20px;
 color:#00ff88;
-text-shadow:0 0 20px #00ff88,0 0 40px #00ff88;
-margin:15px 0;
 font-weight:600;
+text-shadow:0 0 15px #00ff88;
+margin-bottom:20px;
 }
 
 /* Description */
@@ -104,31 +98,27 @@ opacity:0.95;
 .timer-title{
 color:gold;
 font-size:18px;
-margin-top:10px;
-text-shadow:0 0 10px gold;
+margin-bottom:5px;
 }
 
 #countdown{
-font-size:55px;
+font-size:48px;
 color:#ff2e2e;
 font-weight:800;
-margin:10px 0 30px;
-text-shadow:0 0 20px red,0 0 40px red;
+text-shadow:0 0 20px red;
+margin-bottom:30px;
 animation:pulse 1s infinite;
 }
 
 @keyframes pulse{
 0%{transform:scale(1);}
-50%{transform:scale(1.15);}
+50%{transform:scale(1.1);}
 100%{transform:scale(1);}
 }
 
 /* Button */
 .btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-gap:12px;
+display:inline-block;
 background:linear-gradient(45deg,#FFD700,#ffae00);
 color:black;
 font-weight:800;
@@ -136,19 +126,20 @@ font-size:20px;
 padding:18px 35px;
 border-radius:50px;
 text-decoration:none;
-box-shadow:0 0 40px gold,0 0 80px gold;
+box-shadow:0 0 40px gold;
 transition:0.3s;
 }
 
 .btn:hover{
-transform:scale(1.08);
-box-shadow:0 0 60px gold,0 0 120px gold;
+transform:scale(1.07);
+box-shadow:0 0 70px gold;
 }
-
 </style>
 </head>
 
 <body>
+
+<div class="bg-glow"></div>
 
 <div class="card">
 
@@ -160,26 +151,26 @@ box-shadow:0 0 60px gold,0 0 120px gold;
 
 <div class="desc">
 Accurate Cricket & Tennis Predictions<br>
-99% Accuracy Ke Sath<br>
-High Confidence Calls With Consistent Result
+TIPPING KING<br>
+High Confidence With Consistent Result
 </div>
 
 <div class="timer-title">Vip Joining Ends In</div>
 <div id="countdown">60</div>
 
 <a href="https://t.me/+27Ui4IDmUKQ5OTdl" class="btn">
-✈ Join World King Vip
+Join World King Vip
 </a>
 
 </div>
 
 <script>
-let time = 60;
-let x = setInterval(function(){
+let time=60;
+let timer=setInterval(function(){
 time--;
 document.getElementById("countdown").innerHTML=time;
 if(time<=0){
-clearInterval(x);
+clearInterval(timer);
 document.getElementById("countdown").innerHTML="Closed";
 }
 },1000);
